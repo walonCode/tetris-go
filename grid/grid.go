@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
+	"github.com/walonCode/tetris-go/colors"
 )
 
 type Grid struct {
@@ -97,6 +98,6 @@ func New()*Grid{
 		numRows: 20,
 		numCols: 10,
 		cellSize: 30,
-		colors: nil,
+		colors: *colors.GetColors(),
 	}
 }
