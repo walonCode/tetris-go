@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
-	"github.com/walonCode/tetris-go/colors"
+	"github.com/walonCode/tetris-go/internals/colors"
 )
 
 type Grid struct {
