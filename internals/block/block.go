@@ -3,9 +3,9 @@ package block
 import (
 	rl "github.com/gen2brain/raylib-go/raylib"
 	"github.com/walonCode/tetris-go/internals/colors"
+	"github.com/walonCode/tetris-go/internals/position"
 )
 
-type Position struct{}
 
 type Block struct {
 	cellSize int 
@@ -16,13 +16,13 @@ type Block struct {
 
 	//public 
 	Id int
-	Cells map[int][]Position
+	Cells map[int][]position.Position
 }
 
 func (b *Block)Draw(offsetX, offsetY int){
-	titles := []int{}
-	for _, items := range  titles {
-		rl.DrawRectangle(item.column * b.cellSize + offsetX, item.row * b.cellSize + offsetY, int32(b.cellSize) - 1, int32(b.cellSize - 1), b.colors[b.Id])
+	titles := b.GetCellPostion()
+	for _, item := range  titles {
+		rl.DrawRectangle(int32(item.Column * b.cellSize + offsetX), int32(item.Row * b.cellSize + offsetY), int32(b.cellSize) - 1, int32(b.cellSize - 1), b.colors[b.Id])
 	}
 }
 
@@ -31,13 +31,13 @@ func (b *Block)Move(rows, columns int){
 	b.columnOffset += columns
 }
 
-func (b *Block)GetCellPostion()[]Position{
+func (b *Block)GetCellPostion()[]position.Position{
 	titles := b.Cells[b.rotationState]
-	var movedTitles []Position
+	var movedTitles []position.Position
 
 	for _, title := range titles {
-		newPos := Position{}
-		movedTitles.PushBack(newPos)
+		newPos := position.New(title.Row+b.rowOffset, title.Column+b.columnOffset)
+		movedTitles = append(movedTitles, *newPos)
 	}
 
 	return movedTitles
