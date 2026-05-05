@@ -16,7 +16,7 @@ type Block struct {
 
 	//public 
 	Id int
-	Cells map[int][]position.Position
+	Cells [][]position.Position
 }
 
 func (b *Block)Draw(offsetX, offsetY int){
