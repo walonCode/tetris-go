@@ -98,6 +98,6 @@ func New()*Grid{
 		numRows: 20,
 		numCols: 10,
 		cellSize: 30,
-		colors: *colors.GetColors(),
+		colors: colors.GetColors(),
 	}
 }

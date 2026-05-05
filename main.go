@@ -1,9 +1,6 @@
 package main
 
-import (
-
-	rl "github.com/gen2brain/raylib-go/raylib"
-)
+import rl "github.com/gen2brain/raylib-go/raylib"
 
 const WIDTH int32 = 300
 const HEIGHT int32 = 600
