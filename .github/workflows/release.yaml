@@ -23,6 +23,15 @@ jobs:
         with:
           go-version-file: go.mod
 
+      - name: Install Linux build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libasound2-dev \
+            libgl1-mesa-dev \
+            mesa-common-dev \
+            xorg-dev
+
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:

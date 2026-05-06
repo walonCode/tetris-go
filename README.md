@@ -43,13 +43,33 @@ To build a local binary:
 go build -o tetris-go .
 ```
 
+## Install
+
+To install the game with Go:
+
+```bash
+go install github.com/walonCode/tetris-go@latest
+```
+
+Then run:
+
+```bash
+tetris-go
+```
+
 ## Releases
 
 Tagged builds are published through GitHub Actions and GoReleaser.
 
 1. Create and push a version tag such as `v0.1.0`.
 2. GitHub Actions runs GoReleaser.
-3. Release archives are attached to the GitHub release with the required `fonts/` and `sounds/` assets.
+3. Linux `amd64` and Windows `amd64` release archives are attached to the GitHub release with the required `fonts/` and `sounds/` assets.
+
+## Attribution
+
+This Go version is based on a C++ raylib implementation by `educ8s`, which I am using as the source project while converting the game to Go:
+
+- https://github.com/educ8s/Cpp-Tetris-Game-with-raylib
 
 ## License
 
