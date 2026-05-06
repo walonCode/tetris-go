@@ -17,7 +17,7 @@ func main() {
 	rl.SetTargetFPS(60)
     rl.InitWindow(WIDTH, HEIGHT, "Tetris Go")
     defer rl.CloseWindow()
-    font := rl.LoadFont("font/monogram.ttf")
+    font := rl.LoadFont("fonts/monogram.ttf")
 
     //game struct
     game := game.New()
