@@ -25,13 +25,14 @@ type Game struct {
 
 // constructor
 func New() *Game {
+	rl.InitAudioDevice()
 	g := &Game{
 		grid: *grid.New(),
 		GameOver: false,
 		Score: 0,
-		Music: rl.LoadMusicStream(""),
-		rotateSound: rl.LoadSound(""),
-		clearSound: rl.LoadSound(""),	
+		Music: rl.LoadMusicStream("sounds/music.mp3"),
+		rotateSound: rl.LoadSound("sounds/rotate.mp3"),
+		clearSound: rl.LoadSound("sounds/clear.mp3"),	
 	}
 	rl.PauseMusicStream(g.Music)
 
