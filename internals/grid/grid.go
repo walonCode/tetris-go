@@ -12,14 +12,14 @@ type Grid struct {
 	numCols int
 	cellSize int
 	colors []rl.Color 
-	grid [20][10]int
+	Grid [20][10]int
 }
 
 //public function
 func (g *Grid) Initialize(){
 	for row := 0; row < g.numRows; row++{
 		for col := 0; col < g.numCols; col++{
-			g.grid[row][col] = 0
+			g.Grid[row][col] = 0
 		}
 	}
 }
@@ -27,7 +27,7 @@ func (g *Grid) Initialize(){
 func (g *Grid)Print(){
 	for row := 0; row < g.numRows; row++{
 		for col := 0; col < g.numCols; col++{
-			fmt.Printf("%d ",g.grid[row][col])
+			fmt.Printf("%d ",g.Grid[row][col])
 		}
 		fmt.Print("")
 	}
@@ -36,7 +36,7 @@ func (g *Grid)Print(){
 func (g *Grid)Draw(){
 	for row := 0; row < g.numRows; row++{
 		for col := 0; col < g.numCols; col++{
-			cellValue := g.grid[row][col]
+			cellValue := g.Grid[row][col]
 			rl.DrawRectangle(int32(col * g.cellSize) + 11, int32(row * g.cellSize) + 11, int32(g.cellSize) - 1, int32(g.cellSize) - 1, g.colors[cellValue] )
 		}
 	}
@@ -50,7 +50,7 @@ func (g *Grid) IsCellOutside(row,column int)bool{
 }
 
 func (g *Grid) IsCellEmpty(row, column int)bool{
-	if g.grid[row][column] == 0 {
+	if g.Grid[row][column] == 0 {
 		return true
 	}
 
@@ -73,7 +73,7 @@ func (g *Grid)ClearFullRows()int{
 // private function
 func (g *Grid) isRowFull(row int)bool{
 	for col:=0; col<g.numCols;col++{
-		if g.grid[row][col] == 0 {
+		if g.Grid[row][col] == 0 {
 			return false
 		}
 	}
@@ -83,13 +83,13 @@ func (g *Grid) isRowFull(row int)bool{
 
 func (g *Grid)clearRow(row int){
 	for col:=0; col<g.numCols;col++{
-		g.grid[row][col] = 0
+		g.Grid[row][col] = 0
 	}
 }
 func (g *Grid)moveRowDown(row,numRows int){
 	for col:=0; col<g.numCols;col++{
-	 	g.grid[row + numRows][col] = g.grid[row][col];
-        g.grid[row][col] = 0;
+	 	g.Grid[row + numRows][col] = g.Grid[row][col];
+        g.Grid[row][col] = 0;
 	}
 }
 

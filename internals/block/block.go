@@ -20,7 +20,7 @@ type Block struct {
 }
 
 func (b *Block)Draw(offsetX, offsetY int){
-	titles := b.GetCellPostion()
+	titles := b.GetCellPostions()
 	for _, item := range  titles {
 		rl.DrawRectangle(int32(item.Column * b.cellSize + offsetX), int32(item.Row * b.cellSize + offsetY), int32(b.cellSize) - 1, int32(b.cellSize - 1), b.colors[b.Id])
 	}
@@ -31,7 +31,7 @@ func (b *Block)Move(rows, columns int){
 	b.columnOffset += columns
 }
 
-func (b *Block)GetCellPostion()[]position.Position{
+func (b *Block)GetCellPostions()[]position.Position{
 	titles := b.Cells[b.rotationState]
 	var movedTitles []position.Position
 
