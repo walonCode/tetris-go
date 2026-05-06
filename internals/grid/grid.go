@@ -50,6 +50,10 @@ func (g *Grid) IsCellOutside(row,column int)bool{
 }
 
 func (g *Grid) IsCellEmpty(row, column int)bool{
+	if g.IsCellOutside(row, column) {
+		return false
+	}
+
 	if g.Grid[row][column] == 0 {
 		return true
 	}

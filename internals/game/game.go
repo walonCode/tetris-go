@@ -148,7 +148,7 @@ func (g *Game) isBlockOutside() bool {
 func (g *Game) rotateBlock() {
 	if !g.GameOver {
 		g.currentBlock.Rotate()
-		if !g.isBlockOutside() || g.blockFits() == false {
+		if g.isBlockOutside() || g.blockFits() == false {
 			g.currentBlock.UndoRotation()
 		}else {
 			rl.PauseSound(g.rotateSound)
